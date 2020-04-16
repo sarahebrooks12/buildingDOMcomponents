@@ -76,29 +76,177 @@ const students = [
 ]
 
 // Copy the createStudentComponent function into your code.
-const createStudentComponent = (name, subject, info) => {
-    return `
-        <div class="student">
-            <h1>${name}</h1>
-            <section>${subject}</section>
-            <aside>${info}</aside>
-        </div>
-    `
-}
+// const createStudentComponent = (name, subject, info, headingClassName) => {
+//     return  `
+//     <div class="student">
+//         <h1 class="xx-large ${headingClassName}">${name}</h1>
+//         <section class="bordered dashed section--padded">${subject}</section>
+//         <aside class="pushRight">${info}</aside>
+//     </div>`
+// }
+
+// const swathiComponent = createStudentComponent("Swathi", "coding", "this is hard but she will persevere", "passing")
+// console.log(swathiComponent)
+
+
+
+// for (let i = 0; i < students.length; i++) {
+//     let studentComponent = ""
+//     if (students[i].score >= 60) {
+//         studentComponent = createStudentComponent(students[i].name, students[i].subject, students[i].info, "passing")
+//     } else {
+//         studentComponent = createStudentComponent(students[i].name, students[i].subject, students[i].info, "failing")
+//     }
+//     console.log(studentComponent)
+//     document.querySelector("#container").innerHTML += studentComponent;
+// }
+
 
 // Iterate the array of students, and apply the correct style to the h1 depending on the score of the student being below 60, or above it.
-for (let i = 0; i < students.length; i++) {
-    let studentComponent = ""
-    if (students[i].score >= 60) {
-        studentComponent = ...
-    } else {
-        studentComponent = ...
-    }
-}
+// for (let i = 0; i < students.length; i++) {
+//     let studentComponent = ""
+//     if (students[i].score >= 60) {
+//         studentComponent = 
+//         `<div class="student">
+//         <h1 class="xx-large passing">${students[i].name}</h1>
+//         <section class="bordered dashed section--padded">${students[i].subject}</section>
+//         <aside class="pushRight">${students[i].info}</aside>
+//     </div>`
+//     } else {
+//         studentComponent = `<div class="student">
+//         <h1 class="xx-large failing">${students[i].name}</h1>
+//         <section class="bordered dashed section--padded">${students[i].subject}</section>
+//         <aside class="pushRight">${students[i].info}</aside>
+//     </div>`
+//     }
+//     console.log(studentComponent)
+//     document.querySelector("#container").innerHTML += studentComponent;
+// }
+
+// for (let i = 0; i < students.length; i++) {
+//     let studentComponent = ""
+//     if (students[i].score >= 60) {
+//         studentComponent = createStudentComponent(students[i].name, students[i].subject, students[i].info, "passing")
+//     } else {
+//         studentComponent = createStudentComponent(students[i].name, students[i].subject, students[i].info, "failing")
+//     }
+//     console.log(studentComponent)
+//     document.querySelector("#container").innerHTML += studentComponent;
+// }
+
+
+
+
+
+// for (let i = 0; i < students.length; i++) {
+//     let studentComponent = ""
+//     if (students[i].score >= 60) {
+//         studentComponent = 
+//         `<div class="student">
+//         <h1 class="xx-large passing">${students[i].name}</h1>
+//         <section class="bordered dashed section--padded">${students[i].subject}</section>
+//         <aside class="pushRight">${students[i].info}</aside>
+//     </div>`
+//     } else {
+//         studentComponent = `<div class="student">
+//         <h1 class="xx-large failing">${students[i].name}</h1>
+//         <section class="bordered dashed section--padded">${students[i].subject}</section>
+//         <aside class="pushRight">${students[i].info}</aside>
+//     </div>`
+//     }
+//     console.log(studentComponent)
+//     document.querySelector("#container").innerHTML += studentComponent;
+// }
+// document.querySelector(".student-container").innerHTML += htmlString;
 // If a student is passing, then the structure should look like the following.
 
-<div class="student">
-    <h1 class="xx-large passing">Student Name</h1>
-    <section class="bordered dashed section--padded">Subject</section>
-    <aside class="pushRight">Additional information</aside>
-</div>
+// {/* <div class="student">
+//     <h1 class="xx-large passing">Student Name</h1>
+//     <section class="bordered dashed section--padded">Subject</section>
+//     <aside class="pushRight">Additional information</aside>
+// </div> */}
+
+
+// const createStudentComponent = (studentObject) => {
+//     if (studentObject.score >= 60) {
+//         return `
+//         <div class="student">
+//             <h1 class="xx-large passing">${studentObject.name}</h1>
+//             <section class="bordered dashed section--padded">${studentObject.subject}</section>
+//             <aside class="pushRight">${studentObject.info}</aside>
+//         </div>`
+//     } else {
+//         return `
+//         <div class="student">
+//             <h1 class="xx-large failing">${studentObject.name}</h1>
+//             <section class="bordered dashed section--padded">${studentObject.subject}</section>
+//             <aside class="pushRight">${studentObject.info}</aside>
+//         </div>`
+//         }
+// }
+// for (student of students){
+//     let studentComponent = ""
+//     studentComponent = createStudentComponent(student)
+//     document.querySelector("#container").innerHTML += studentComponent
+// }
+
+// Write functions that build the sub-components of the larger student component.
+
+// h1
+// section
+// aside
+// Invoke those functions inside the createStudentComponent function to build the parent <div>.
+
+// const createStudentComponent = (student) => `
+//     <div id="student">
+//         ${h1(student.name)}
+//         ${section(student.subject)}
+//         ${aside(student.info)}
+//     </div>
+// `
+// console.log(createStudentComponent)
+// document.querySelector(div).innerHTML += student
+
+// Challenge: Composition of Smaller Components
+const h1 = (text, headingClassName) =>
+{
+    let createHeading = document.createElement("h1");
+    let headingText = document.createTextNode(text);
+    createHeading.setAttribute("class", `xx-large ${headingClassName}`)
+    createHeading.appendChild(headingText);
+    document.body.appendChild(createHeading);
+}
+const section = (text) =>
+{
+    let createSection = document.createElement("section");
+    let sectionText = document.createTextNode(text);
+    createSection.setAttribute("class", "bordered dashed section--padded")
+    createSection.appendChild(sectionText);
+    document.body.appendChild(createSection);
+}
+const aside = (text) =>
+{
+    let createAside = document.createElement("aside");
+    let asideText = document.createTextNode(text);
+    createAside.setAttribute("class", "pushRight")
+    createAside.appendChild(asideText);
+    document.body.appendChild(createAside);
+}
+const createStudentComponent = (student, headingClassName) => {
+`
+    <div class="student">
+        ${h1(student.name, headingClassName)}
+        ${section(student.subject)}
+        ${aside(student.info)}
+    </div>
+`
+}
+for (student of students){
+    let studentComponent = ""
+    if (student.score >= 60){
+        studentComponent = createStudentComponent(student, "passing")
+    }
+    else{
+        studentComponent = createStudentComponent(student, "failing")
+    }
+}
