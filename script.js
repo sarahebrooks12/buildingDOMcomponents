@@ -207,46 +207,93 @@ const students = [
 // console.log(createStudentComponent)
 // document.querySelector(div).innerHTML += student
 
+
+// const element = (elementType, text, className) =>
+// {
+//     let createElement = document.createElement(elementType);
+//     let ElementText = document.createTextNode(text);
+//     createElement.setAttribute("class", ${className});
+//     createElement.appendChild(ElementText);
+//     document.body.appendChild(createElement);
+// }
+// const createStudentComponent = (student, headingClassName) =>{ `
+//     <div id="student">
+//         ${element("h1", student.name, xx-large ${headingClassName})}
+//         ${element("section", student.subject, "bordered dashed section--padded")}
+//         ${element("aside", student.info, "pushRight")}
+//     </div>`
+// }
+// for (student of students){
+//     let studentComponent = ""
+//     if (student.score >= 60){
+//         studentComponent = createStudentComponent(student, "passing")
+//     }
+//     else{
+//         studentComponent = createStudentComponent(student, "failing")
+//     } 
+// }
+
+
+
 // Challenge: Composition of Smaller Components
-const h1 = (text, headingClassName) =>
-{
-    let createHeading = document.createElement("h1");
-    let headingText = document.createTextNode(text);
-    createHeading.setAttribute("class", `xx-large ${headingClassName}`)
-    createHeading.appendChild(headingText);
-    document.body.appendChild(createHeading);
+// const h1 = (text, headingClassName) =>
+// {
+//     let createHeading = document.createElement("h1");
+//     let headingText = document.createTextNode(text);
+//     createHeading.setAttribute("class", `xx-large ${headingClassName}`)
+//     createHeading.appendChild(headingText);
+//     document.body.appendChild(createHeading);
+// }
+// const section = (text) =>
+// {
+//     let createSection = document.createElement("section");
+//     let sectionText = document.createTextNode(text);
+//     createSection.setAttribute("class", "bordered dashed section--padded")
+//     createSection.appendChild(sectionText);
+//     document.body.appendChild(createSection);
+// }
+// const aside = (text) =>
+// {
+//     let createAside = document.createElement("aside");
+//     let asideText = document.createTextNode(text);
+//     createAside.setAttribute("class", "pushRight")
+//     createAside.appendChild(asideText);
+//     document.body.appendChild(createAside);
+// }
+// const createStudentComponent = (student, headingClassName) => {
+// `
+//     <div class="student">
+//         ${h1(student.name, headingClassName)}
+//         ${section(student.subject)}
+//         ${aside(student.info)}
+//     </div>
+// `
+// }
+// for (student of students){
+//     let studentComponent = ""
+//     if (student.score >= 60){
+//         studentComponent = createStudentComponent(student, "passing")
+//     }
+//     else{
+//         studentComponent = createStudentComponent(student, "failing")
+//     }
+// }
+
+// Look at the three functions you created to build an h1, a section, and an aside. Notice that each one follows the same pattern of accepting a single argument - a string - and outputting a single HTML component. Since there is a pattern, you can consider writing a single function that generalizes the creation of an HTML component even further.
+
+// Create one function that will generate any HTML component, with any content. It should be defined with three arguments.
+
+// The type of HTML component to make
+// The content of the component
+// The value of the class attribute
+const createStudentComponent = (students) => `
+    <div id="student">
+        ${element("h1", students.name, "xx-large passing")}
+        ${element("section", students.subject, "bordered dashed section--padded")}
+        ${element("aside", students.info, "pushRight")}
+    </div>`
+
+    function element (element) {
+    document.querySelector(body).innerHTML += ""
 }
-const section = (text) =>
-{
-    let createSection = document.createElement("section");
-    let sectionText = document.createTextNode(text);
-    createSection.setAttribute("class", "bordered dashed section--padded")
-    createSection.appendChild(sectionText);
-    document.body.appendChild(createSection);
-}
-const aside = (text) =>
-{
-    let createAside = document.createElement("aside");
-    let asideText = document.createTextNode(text);
-    createAside.setAttribute("class", "pushRight")
-    createAside.appendChild(asideText);
-    document.body.appendChild(createAside);
-}
-const createStudentComponent = (student, headingClassName) => {
-`
-    <div class="student">
-        ${h1(student.name, headingClassName)}
-        ${section(student.subject)}
-        ${aside(student.info)}
-    </div>
-`
-}
-for (student of students){
-    let studentComponent = ""
-    if (student.score >= 60){
-        studentComponent = createStudentComponent(student, "passing")
-    }
-    else{
-        studentComponent = createStudentComponent(student, "failing")
-    }
-}
+    
